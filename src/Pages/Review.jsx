@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearchengin } from "@fortawesome/free-brands-svg-icons";
-import { faRocket, faStar } from "@fortawesome/free-solid-svg-icons";
+import {faStar } from "@fortawesome/free-solid-svg-icons";
 import useMovies from "../Components/Usemovies";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 
 
@@ -46,7 +45,13 @@ const Review = () => {
     setopgenre("");
     setopyear("")
   }
-  
+
+  const navigate = useNavigate("");
+
+  const handleclick = (id) => {
+    navigate(`/review/${id}`);
+  };
+
   return (
     <>
       <div className="flex justify-center mt-15">
@@ -88,8 +93,8 @@ const Review = () => {
       <div className="text-white grid grid-cols-5 w-full gap-7 mt-10 m justify-center items-center" id="rating">
         {filteredmoview.length === 0 ? (<h1 className="col-span-5 text-center text-2xl my-40 ">
       No movies found for your search!!
-    </h1>) : (filteredmoview.map((top, index) => (<div key={`${top.id}-${index}`} className="flex flex-col items-center hover:scale-107 duration-100 ease-in-out border border-[oklch(10.9%_0.041_260.031)] bg-[oklch(18.9%_0.042_264.695)] rounded-2xl py-2 h-[450px] w-[270px]">
-                  <div className=""> 
+    </h1>) : (filteredmoview.map((top, index) => (<div key={`${top.id}-${index}`} className="flex flex-col items-center hover:scale-107 duration-100 ease-in-out border border-[oklch(10.9%_0.041_260.031)] bg-[oklch(18.9%_0.042_264.695)] rounded-2xl py-2 h-[450px] w-[270px]" >
+                  <div onClick={() => handleclick(top.id)}> 
                   <img src={`https://image.tmdb.org/t/p/w500${top.poster_path}`} className="w-[220px] h-[300px] rounded-xl"/>
                       <h1 className="text-[18px] w-[200px] text-center pt-2">{top.title}</h1>
                       <h2 className="text-[15px] w-[200px] text-gray-400 text-center pt-1">

@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 import Navbar from "./Components/Navbar"
 import Home from "./Pages/Home"
 import Review from "./Pages/Review"
+import Moviereview from "./Pages/Moviereview"
+
 
 
 const App = () => {
@@ -17,6 +19,9 @@ const App = () => {
         }, {
           path: "review",
           element:<Review />
+        }, {
+          path: "review/:id",
+          element: <Moviereview />,
         }
       ]
     }
