@@ -40,7 +40,7 @@ const Review = () => {
   const [oprating, setoprating] = useState("")
   console.log(oprating)
 
-   const filteredmoview = movies.filter(movie => movie.poster_path && (search ? movie.title.toLowerCase().includes(search.toLowerCase()) : true) && (opgenre ? movie.genre_ids.includes(Number(opgenre)) : true) && (opyear ? movie.release_date.slice(0, 4) == opyear : true) && (oprating === "1 - 5" ? movie.vote_average <= 5 : true) && (oprating === "6 - 10" ? movie.vote_average >= 5 : true) )
+   const filteredmoview = movies.filter(movie => movie.poster_path && (search ? movie.title.toLowerCase().includes(search.toLowerCase()) : true) && (opgenre ? movie.genre_ids.includes(Number(opgenre)) : true) && (opyear ? movie.release_date.slice(0, 4) == opyear : true) && (oprating === "1 - 5" ? movie.vote_average <= 5 : true) && (oprating === "6 - 10" ? movie.vote_average >= 6 : true) )
 
   const handleReset = () => {
     setSerach("");
