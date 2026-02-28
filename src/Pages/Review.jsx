@@ -37,13 +37,16 @@ const Review = () => {
   const [search, setSerach] = useState("")
   const [opgenre, setopgenre] = useState("")
   const [opyear, setopyear] = useState("")
+  const [oprating, setoprating] = useState("")
+  console.log(oprating)
 
-   const filteredmoview = movies.filter(movie => movie.poster_path && (search ? movie.title.toLowerCase().includes(search.toLowerCase()) : true) && (opgenre ? movie.genre_ids.includes(Number(opgenre)) : true) && (opyear ? movie.release_date.slice(0, 4) == opyear : true))
+   const filteredmoview = movies.filter(movie => movie.poster_path && (search ? movie.title.toLowerCase().includes(search.toLowerCase()) : true) && (opgenre ? movie.genre_ids.includes(Number(opgenre)) : true) && (opyear ? movie.release_date.slice(0, 4) == opyear : true) && (oprating === "1 - 5" ? movie.vote_average <= 5 : true) && (oprating === "6 - 10" ? movie.vote_average >= 5 : true) )
 
   const handleReset = () => {
     setSerach("");
     setopgenre("");
-    setopyear("")
+    setopyear("");
+    setoprating("");
   }
 
   const navigate = useNavigate("");
@@ -77,11 +80,11 @@ const Review = () => {
           </select>
         </div>
         <div>
-          <select className="text-black bg-white py-1 px-1 rounded-lg">
-            <option>Rating</option>
-            <option>1 - 3</option>
-            <option>4 - 6</option>
-            <option>7 - 10</option>
+          <select className="text-black bg-white py-1 px-1 rounded-lg"
+          value={oprating}  onChange={e => setoprating(e.target.value)}>
+            <option value="">Rating</option>
+            <option>1 - 5</option>
+            <option>6 - 10</option>
           </select>
         </div>
         <div>
@@ -100,7 +103,7 @@ const Review = () => {
                       <h2 className="text-[15px] w-[200px] text-gray-400 text-center pt-1">
             {top.genre_ids.map((id) => genreMap[id]).filter(Boolean).join(", ")}
                       </h2>
-                      <h2 className="text-center pt-1">Rating:{top.vote_average < 7 ? "8.5" : top.vote_average.toFixed(1)}<span className="text-[oklch(82.8%_0.189_84.429)]"><FontAwesomeIcon icon={faStar}/></span></h2>
+                      <h2 className="text-center pt-1">Rating:{top.vote_average.toFixed(1)}<span className="text-[oklch(82.8%_0.189_84.429)]"><FontAwesomeIcon icon={faStar}/></span></h2>
                       </div>
               </div>)))}
       </div>
