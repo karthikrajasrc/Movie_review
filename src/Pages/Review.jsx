@@ -99,7 +99,7 @@ const Review = () => {
     </h1>) : (filteredmoview.map((top, index) => (<div key={`${top.id}-${index}`} className="flex flex-col items-center hover:scale-107 duration-100 ease-in-out border border-[oklch(10.9%_0.041_260.031)] bg-[oklch(18.9%_0.042_264.695)] rounded-2xl py-2 mt-3 lg:h-[440px] md:h-[350px] md:max-w-[220px] h-[320px] w-full max-w-[155px] lg:max-w-[270px] items-center" >
                   <div onClick={() => handleclick(top.id)}> 
                   <img src={`https://image.tmdb.org/t/p/w500${top.poster_path}`} className="lg:w-[220px] md:w-[180px] md:h-[220px] w-[130px] h-[170px] lg:h-[300px] rounded-xl"/>
-                      <h1 className="lg:text-[18px] xl:text-[20px] md:text-[18px] text-[15px] lg:w-[200px] md:w-[180px] w-[120px] text-center pt-2">{top.title}</h1>
+                      <h1 className="lg:text-[18px] xl:text-[18px] md:text-[18px] text-[15px] lg:w-[200px] md:w-[180px] w-[120px] text-center pt-2">{top.title}</h1>
                       <h2 className="xl:text-[17px] lg:text-[15px] text-[13px] lg:w-[200px] md:w-[180px] w-[120px] text-gray-400 text-center pt-1">
             {top.genre_ids.map((id) => genreMap[id]).filter(Boolean).join(", ")}
                       </h2>

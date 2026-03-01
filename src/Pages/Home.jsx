@@ -38,6 +38,10 @@ const Home = () => {
           <div className="lg:ml-25 mt-15 ml-4" id="rated">
               <h1 className="lg:text-[28px] text-2xl text-white">Top Rated Movies <span className="text-[oklch(82.8%_0.189_84.429)]"><FontAwesomeIcon icon={faStar}/></span></h1>
           </div>
+          <div className="flex justify-center mt-5 mb-5">
+              <Link to={"review"}>
+              <button className="text-[oklch(68.6%_0.179_58.318)] font-bold lg:text-[22px] border border-white px-2 py-1 rounded-xl bg-white hover:scale-108 duration-100 ease-in-out">Browse More</button></Link>
+          </div>
           <div className="text-white grid lg:grid-cols-4 xl:grid-cols-5 md:grid-cols-3 grid-cols-2 w-full lg:gap-7 gap-0 mt-10 justify-items-center">
               {top10.map((top) => (<div key={top.id} className="flex flex-col items-center hover:scale-107 duration-100 ease-in-out border border-[oklch(10.9%_0.041_260.031)] bg-[oklch(18.9%_0.042_264.695)] rounded-2xl py-2 mt-3 lg:h-[440px] md:h-[350px] md:max-w-[220px] h-[320px] w-full max-w-[155px] lg:max-w-[270px] items-center">
                   <div> 
@@ -50,13 +54,10 @@ const Home = () => {
                       </div>
               </div>))}
           </div>
-          <div className="flex justify-center mt-10 mb-15">
-              <Link to={"review"}>
-              <button className="text-[oklch(68.6%_0.179_58.318)] font-bold lg:text-[22px] border border-white px-2 py-1 rounded-xl bg-white hover:scale-108 duration-100 ease-in-out">Browse More</button></Link>
-          </div>
+          
           <div>
               <footer>
-                  <div className="flex lg:flex-row md:flex-row md:h-[250px] flex-col lg:justify-center gap-[35px] bg-[oklch(20.8%_0.042_265.755)] pt-10 mt-5 lg:h-[250px] h-[500px] w-full">
+                  <div className="flex lg:flex-row md:flex-row mt-15 md:h-[250px] flex-col lg:justify-center gap-[35px] bg-[oklch(20.8%_0.042_265.755)] pt-10 mt-5 lg:h-[250px] h-[500px] w-full">
                   <div className="lg:w-[400px] md:w-[300px] w-full text-white text-center">
                       <h1 className="lg:text-[22px]  text-[19px] font-bold pb-3">Moview Review</h1>
                       <p className="lg:text-[18px] text-[15px] mx-2">Search thousands of movies, explore detailed information, and share your ratings with an interactive star-based system — all in one place.</p>
